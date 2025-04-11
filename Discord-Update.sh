@@ -9,15 +9,15 @@ if [ $? -eq 0 ]; then
 	#Create temporary directory / Temporäres Verzeichnis erstellen
 	mkdir /var/discord
 
-	#Aktuelle Version von Discord (.deb) herunderladen / Download latest version (.deb)
+	#Download latest version (.deb) / Aktuelle Version von Discord (.deb) herunderladen
 	wget -O /var/discord/discord-installer.deb "https://discord.com/api/download/stable?platform=linux&format=deb"
 
-	#Installiere aktuelle Version von Discord / install latest version 
+	#Install latest version / Installiere aktuelle Version von Discord 
 	apt install /var/discord/discord-installer.deb
 	echo -e "Discord is now up to date! Please wait for clean up..."
 	sleep 3
 
-	#Aufräumen / clean up
+	#Clean up / Aufräumen
 	rm -rf /var/discord/
 else
     echo "The package wget is NOT installed! Please install wget and try again."
