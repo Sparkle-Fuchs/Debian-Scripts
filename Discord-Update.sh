@@ -49,19 +49,19 @@ if [ $? -eq 0 ]; then
 		echo -e "Discord will be updated shortly..."
 		sleep 1
 
-		#Create temporary directory / Temporäres Verzeichnis erstellen
+		#Create temporary directory
 		mkdir /var/discord
 
-		#Download latest version (.deb) / Aktuelle Version von Discord (.deb) herunderladen
+		#Download latest version (.deb)
   		echo -e "Download Discord $VersionRemote"
 		wget -O /var/discord/discord-installer.deb "https://discord.com/api/download/stable?platform=linux&format=deb"
 
-		#Install latest version / Installiere aktuelle Version von Discord 
+		#Install latest version
 		apt install /var/discord/discord-installer.deb
 		echo -e "Discord is now up to date! Please wait for clean up..."
 		sleep 1
 
-		#Clean up / Aufräumen
+		#Clean up
 		rm -rf /var/discord/
 
 	else
@@ -74,17 +74,17 @@ else
 	#Discord can not be update, because Discord is not installed
     	echo "The package discord is NOT installed! Discorad will be installed now!"
 
-	#Create temporary directory / Temporäres Verzeichnis erstellen
+	#Create temporary directory
 	mkdir /var/discord
 
-	#Download latest version (.deb) / Aktuelle Version von Discord (.deb) herunderladen
+	#Download latest version (.deb)
 	wget -O /var/discord/discord-installer.deb "https://discord.com/api/download/stable?platform=linux&format=deb"
 
-	#Install latest version / Installiere aktuelle Version von Discord 
+	#Install latest version
 	apt install /var/discord/discord-installer.deb
 	sleep 1
 
-	#Clean up / Aufräumen
+	#Clean up
 	rm -rf /var/discord/
 
   	echo -e "Discord is installed!"
