@@ -1,7 +1,6 @@
 #!/bin/bash
 
 Discord-Install-Routine(){
-	sleep 1
 	mkdir /tmp/discord
   	echo -e "Download latest version of Discord."
 	wget -O /tmp/discord/discord-installer.deb "https://discord.com/api/download/stable?platform=linux&format=deb"
@@ -38,8 +37,6 @@ else
 	apt install curl
 fi
 
-echo "All Dependencies complete!"
-
 # Is Discord installed?
 dpkg -s discord &> /dev/null
 if [ $? -eq 0 ]; then
@@ -68,5 +65,4 @@ else
 	Discord-Install-Routine
   	echo -e "Discord is installed!"
 fi
-
 exit
