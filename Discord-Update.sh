@@ -2,18 +2,10 @@
 
 Discord-Install-Routine(){
 	sleep 1
-
-	# Create temporary directory
-	mkdir /var/discord
-
-	# Download and install latest version (.deb)
+	mkdir /tmp/discord
   	echo -e "Download latest version of Discord."
-	wget -O /var/discord/discord-installer.deb "https://discord.com/api/download/stable?platform=linux&format=deb"
-	apt install /var/discord/discord-installer.deb
-	sleep 1
-	
-	# Clean up
-	rm -rf /var/discord/
+	wget -O /tmp/discord/discord-installer.deb "https://discord.com/api/download/stable?platform=linux&format=deb"
+	apt install /tmp/discord/discord-installer.deb && rm -rf /tmp/discord
 }
 
 
@@ -62,7 +54,6 @@ if [ $? -eq 0 ]; then
 	VersionLocal=$(dpkg-query -f '${Version}' -W discord)
 	echo -e "Currently installed is: discord" $VersionLocal
 
-	# Check for a newer version
 	if test $VersionLocal != $VersionRemote; then echo "Discord $VersionRemote is newer than Discord $VersionLocal"; fi
 
 	if test $VersionLocal != $VersionRemote; then
@@ -70,11 +61,9 @@ if [ $? -eq 0 ]; then
 		Discord-Install-Routine
 		echo -e "Discord is now up to date!"
 	else
-		# Discord can not be update, because the latest version is installed
     		echo "The package discord is already up to date!"
 	fi
 else
-	# Discord can not be update, because Discord is not installed
     	echo "The package discord is NOT installed! Discorad will be installed now!"
 	Discord-Install-Routine
   	echo -e "Discord is installed!"
