@@ -9,7 +9,7 @@ if [ "$EUID" -ne 0 ]; then
   exit 1
 fi
 
-#is wget installed?
+# Is wget installed?
 dpkg -s wget &> /dev/null
 if [ $? -eq 0 ]; then
   echo -e "wget is installed! Dependencies complete!"
@@ -19,7 +19,7 @@ else
     apt install wget
 fi
 
-#is curl installed?
+# Is curl installed?
 dpkg -s curl &> /dev/null
 if [ $? -eq 0 ]; then
   echo -e "curl is installed! Dependencies complete!"
@@ -31,23 +31,23 @@ fi
 
 echo "All Dependencies complete!"
 
-#Is Discord installed?
+# Is Discord installed?
 dpkg -s discord &> /dev/null
 if [ $? -eq 0 ]; then
 
-	#Get remote version and location
+	# Get remote version and location
 	LocationString=$(curl --location --head 'https://discord.com/api/download/stable?platform=linux&format=deb' | grep "location:")
 	echo -e "The location of the latest version is: " $LocationString
- 	#Select version number
+ 	# Select version number
 	VersionRemote=$(echo "$LocationString" | cut -d '/' -f 6)
 	echo -e "The latest version is: discord" $VersionRemote
 
-	#Get installed version
+	# Get installed version
 	VersionLocal=$(dpkg-query -f '${Version}' -W discord)
 	echo -e "Currently installed is: discord" $VersionLocal
 
 
-	#Check for a newer version
+	# Check for a newer version
 	if test $VersionLocal != $VersionRemote; then echo "Discord $VersionRemote is newer than Discord $VersionLocal"; fi
 
 	if test $VersionLocal != $VersionRemote; then
@@ -55,42 +55,42 @@ if [ $? -eq 0 ]; then
 		echo -e "Discord will be updated shortly..."
 		sleep 1
 
-		#Create temporary directory
+		# Create temporary directory
 		mkdir /var/discord
 
-		#Download latest version (.deb)
+		# Download latest version (.deb)
   		echo -e "Download Discord $VersionRemote"
 		wget -O /var/discord/discord-installer.deb "https://discord.com/api/download/stable?platform=linux&format=deb"
 
-		#Install latest version
+		# Install latest version
 		apt install /var/discord/discord-installer.deb
 		echo -e "Discord is now up to date! Please wait for clean up..."
 		sleep 1
 
-		#Clean up
+		# Clean up
 		rm -rf /var/discord/
 
 	else
-		#Discord can not be update, because the latest version is installed
+		# Discord can not be update, because the latest version is installed
     		echo "The package discord is already up to date!"
 
 	fi
 
 else
-	#Discord can not be update, because Discord is not installed
+	# Discord can not be update, because Discord is not installed
     	echo "The package discord is NOT installed! Discorad will be installed now!"
 
-	#Create temporary directory
+	# Create temporary directory
 	mkdir /var/discord
 
-	#Download latest version (.deb)
+	# Download latest version (.deb)
 	wget -O /var/discord/discord-installer.deb "https://discord.com/api/download/stable?platform=linux&format=deb"
 
-	#Install latest version
+	# Install latest version
 	apt install /var/discord/discord-installer.deb
 	sleep 1
 
-	#Clean up
+	# Clean up
 	rm -rf /var/discord/
 
   	echo -e "Discord is installed!"
