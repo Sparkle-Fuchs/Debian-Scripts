@@ -5,7 +5,6 @@ Discord-Install-Routine(){
   	echo -e "Download latest version of Discord."
 	wget -O /tmp/discord/discord-installer.deb "https://discord.com/api/download/stable?platform=linux&format=deb"
 	apt install /tmp/discord/discord-installer.deb && rm -rf /tmp/discord
-	
 }
 
 # Add script to crontab @reboot >> /etc/cron.d/discord-update
@@ -18,7 +17,6 @@ Discord-Update-On-Reboot(){
 	echo "PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin" >> /etc/cron.d/discord-update
 	echo "" >> /etc/cron.d/discord-update
 	echo "@reboot		root		sleep 300; /usr/sbin/discord-update.sh" >> /etc/cron.d/discord-update
-	touch /home/erfolg.txt
 }
 
 # Check for root privileges
