@@ -1,13 +1,12 @@
 #!/bin/bash
 
-
-echo -e "Note: This script will be install Visual Studio Code!"
-
 # Check for root privileges
 if [ "$EUID" -ne 0 ]; then
 	echo "Error: This script requires root privileges. Please run with sudo."
 	exit 1
 fi
+
+echo -e "Note: This script will be install Visual Studio Code!"
 
 #check for wget
 dpkg -s wget &> /dev/null
