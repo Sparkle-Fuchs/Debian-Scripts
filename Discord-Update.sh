@@ -5,6 +5,20 @@ Discord-Install-Routine(){
   	echo -e "Download latest version of Discord."
 	wget -O /tmp/discord/discord-installer.deb "https://discord.com/api/download/stable?platform=linux&format=deb"
 	apt install /tmp/discord/discord-installer.deb && rm -rf /tmp/discord
+	
+}
+
+# Add script to crontab @reboot >> /etc/cron.d/discord-update
+Discord-Update-On-Reboot(){
+	cp ${BASH_SOURCE[0]} /usr/sbin/discord-update.sh
+	touch /etc/cron.d/discord-update
+	echo "# /etc/cron.d/discord-update: crontab entries for automatic discord updates" >> /etc/cron.d/discord-update
+	echo "" >> /etc/cron.d/discord-update
+	echo "SHELL=/bin/sh" >> /etc/cron.d/discord-update
+	echo "PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin" >> /etc/cron.d/discord-update
+	echo "" >> /etc/cron.d/discord-update
+	echo "@reboot		root		sleep 300; /usr/sbin/discord-update.sh" >> /etc/cron.d/discord-update
+	touch /home/erfolg.txt
 }
 
 # Check for root privileges
@@ -13,8 +27,23 @@ if [ "$EUID" -ne 0 ]; then
 	exit 1
 fi
 
+# Disable automatic discord updates >> remove /etc/cron.d/discord-update
+if test $1 == "--disable"; then
+	rm -rf /etc/cron.d/discord-update
+	echo "Automatic discord updates Disabled!"
+	exit 0
+fi
+
+# Enable automatic discord updates >> create /etc/cron.d/discord-update
+if test $1 == "--enable"; then
+	Discord-Update-On-Reboot
+	echo "Automatic discord updates Enabled!"
+	exit 0
+fi
+
 echo -e "This script is used to easily and automatically update the Discord client. Unfortunately, it still does not have a repository. If Discord is not installed on the target system, this script will install Discord automatically."
 echo -e "Note: This script requires the wget and curl packages. If wget or curl are not installed, this script will install wget and curl!"
+echo -e "Enable / Disable automatic discord updates with '--enable' oder '--disable'"
 
 # Is wget installed?
 dpkg -s wget &> /dev/null
@@ -60,8 +89,9 @@ if [ $? -eq 0 ]; then
     		echo "The package discord is already up to date!"
 	fi
 else
-    	echo "The package discord is NOT installed! Discorad will be installed now!"
+	echo "The package discord is NOT installed! Discorad will be installed now!"
 	Discord-Install-Routine
   	echo -e "Discord is installed!"
 fi
-exit
+
+exit 0
