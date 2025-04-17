@@ -7,15 +7,14 @@ Discord-Install-Routine(){
 	apt install /tmp/discord/discord-installer.deb && rm -rf /tmp/discord
 }
 
-
-echo -e "This script is used to easily and automatically update the Discord client. Unfortunately, it still does not have a repository. If Discord is not installed on the target system, this script will install Discord automatically."
-echo -e "Note: This script requires the wget and curl packages. If wget or curl are not installed, this script will install wget and curl!"
-
 # Check for root privileges
 if [ "$EUID" -ne 0 ]; then
 	echo "Error: This script requires root privileges. Please run with sudo."
 	exit 1
 fi
+
+echo -e "This script is used to easily and automatically update the Discord client. Unfortunately, it still does not have a repository. If Discord is not installed on the target system, this script will install Discord automatically."
+echo -e "Note: This script requires the wget and curl packages. If wget or curl are not installed, this script will install wget and curl!"
 
 # Is wget installed?
 dpkg -s wget &> /dev/null
