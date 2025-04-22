@@ -13,15 +13,17 @@ apt update && apt upgrade
 
 dpkg -s apt-transport-https &> /dev/null
 if [ $? -eq 0 ]; then
-
+	echo -e "apt-transport-https is installed! Dependencies complete!"
 else
+	echo "The package apt-transport-https is NOT installed! apt-transport-https will be installed in 5 seconds! (Press Ctrl + C to cancel)"
 	apt install apt-transport-https
 fi
 
 dpkg -s wget &> /dev/null
 if [ $? -eq 0 ]; then
-
+	echo -e "wget is installed! Dependencies complete!"
 else
+	echo "The package wget is NOT installed! wget will be installed in 5 seconds! (Press Ctrl + C to cancel)"
 	apt install wget
 fi
 
