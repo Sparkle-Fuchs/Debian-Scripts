@@ -12,7 +12,7 @@ dpkg -s apt-transport-https &> /dev/null
 if [ $? -eq 0 ]; then
 	echo -e "apt-transport-https is installed! Dependencies complete!"
 else
-	echo "The package apt-transport-https is NOT installed! Curl will be installed now!"
+	echo "The package apt-transport-https is NOT installed! Apt-transport-https will be installed in 5 seconds! (Press Ctrl + C to cancel)"
 	sleep 5
 	apt install apt-transport-https
 fi
@@ -21,7 +21,7 @@ dpkg -s curl &> /dev/null
 if [ $? -eq 0 ]; then
 	echo -e "curl is installed! Dependencies complete!"
 else
-	echo "The package curl is NOT installed! Curl will be installed now!"
+	echo "The package curl is NOT installed! Curl will be installed in 5 seconds! (Press Ctrl + C to cancel)"
 	sleep 5
 	apt install curl
 fi
