@@ -2,7 +2,7 @@
 
 Discord-Install-Routine(){
 	mkdir /tmp/discord
-  	echo -e "Download latest version of Discord."
+  	echo -e "Download latest version of Discord...   (Press Ctrl + C to cancel)"
 	wget -O /tmp/discord/discord-installer.deb "https://discord.com/api/download/stable?platform=linux&format=deb"
 	apt install /tmp/discord/discord-installer.deb && rm -rf /tmp/discord
 }
@@ -21,7 +21,6 @@ Discord-Update-On-Reboot(){
 	echo "PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin" >> /etc/cron.d/discord-update
 	echo "" >> /etc/cron.d/discord-update
 	echo "@reboot		root		sleep 300; /usr/sbin/discord-update.sh" >> /etc/cron.d/discord-update
-	touch /home/erfolg.txt
 }
 
 
@@ -53,7 +52,7 @@ dpkg -s wget &> /dev/null
 if [ $? -eq 0 ]; then
 	echo -e "wget is installed! Dependencies complete!"
 else
-	echo "The package wget is NOT installed! Wegt will be installed now!"
+	echo "The package wget is NOT installed! Wegt will be installed in 5 seconds! (Press Ctrl + C to cancel)"
 	sleep 5
 	apt install wget
 fi
@@ -63,7 +62,7 @@ dpkg -s curl &> /dev/null
 if [ $? -eq 0 ]; then
 	echo -e "curl is installed! Dependencies complete!"
 else
-	echo "The package curl is NOT installed! Curl will be installed now!"
+	echo "The package curl is NOT installed! Curl will be installed in 5 seconds! (Press Ctrl + C to cancel)"
 	sleep 5
 	apt install curl
 fi
