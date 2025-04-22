@@ -9,7 +9,11 @@ Discord-Install-Routine(){
 
 # Add script to crontab @reboot >> /etc/cron.d/discord-update
 Discord-Update-On-Reboot(){
-	cp ${BASH_SOURCE[0]} /usr/sbin/discord-update.sh
+	# Copie to sbin at first run
+	if test ${BASH_SOURCE[0]} != "/usr/sbin/discord-update.sh"; then
+		cp ${BASH_SOURCE[0]} /usr/sbin/discord-update.sh
+  	fi
+
 	touch /etc/cron.d/discord-update
 	echo "# /etc/cron.d/discord-update: crontab entries for automatic discord updates" >> /etc/cron.d/discord-update
 	echo "" >> /etc/cron.d/discord-update
@@ -17,7 +21,9 @@ Discord-Update-On-Reboot(){
 	echo "PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin" >> /etc/cron.d/discord-update
 	echo "" >> /etc/cron.d/discord-update
 	echo "@reboot		root		sleep 300; /usr/sbin/discord-update.sh" >> /etc/cron.d/discord-update
+	touch /home/erfolg.txt
 }
+
 
 # Check for root privileges
 if [ "$EUID" -ne 0 ]; then
@@ -28,7 +34,7 @@ fi
 # Disable automatic discord updates >> remove /etc/cron.d/discord-update
 if test $1 == "--disable"; then
 	rm -rf /etc/cron.d/discord-update
-	echo "Automatic discord updates Disabled!"
+	echo "Automatic discord updates Disabled! No updates have been installed..."
 	exit 0
 fi
 
@@ -36,7 +42,6 @@ fi
 if test $1 == "--enable"; then
 	Discord-Update-On-Reboot
 	echo "Automatic discord updates Enabled!"
-	exit 0
 fi
 
 echo -e "This script is used to easily and automatically update the Discord client. Unfortunately, it still does not have a repository. If Discord is not installed on the target system, this script will install Discord automatically."
