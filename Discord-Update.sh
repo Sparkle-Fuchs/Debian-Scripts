@@ -72,7 +72,7 @@ dpkg -s discord &> /dev/null
 if [ $? -eq 0 ]; then
 	# Get remote version and location
 	LocationString=$(curl --location --head 'https://discord.com/api/download/stable?platform=linux&format=deb' | grep "location:")
-	echo -e "The location of the latest version is: " $LocationString
+	echo -e $LocationString
  	# Select version number
 	VersionRemote=$(echo "$LocationString" | cut -d '/' -f 6)
 	echo -e "The latest version is: discord" $VersionRemote
