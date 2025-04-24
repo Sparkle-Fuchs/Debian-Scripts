@@ -36,7 +36,8 @@ if [ $? -eq 0 ]; then
 	sudo usermod -aG render,video $LOGNAME
 	rm -rf /tmp/amd
 	apt install lm-sensors radeontop
-  echo "The AMD Graphics Drivers Pro is now installed!"
+	echo "The AMD Graphics Drivers Pro is now installed!"
+ 	sudo init 6
 fi
 
 exit
