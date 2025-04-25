@@ -4,7 +4,7 @@ Discord-Install-Routine(){
 	mkdir /tmp/discord
   	echo -e "Download latest version of Discord...   (Press Ctrl + C to cancel)"
 	wget -O /tmp/discord/discord-installer.deb "https://discord.com/api/download/stable?platform=linux&format=deb"
-	apt install /tmp/discord/discord-installer.deb && rm -rf /tmp/discord
+	apt install /tmp/discord/discord-installer.deb -y && rm -rf /tmp/discord
 }
 
 # Add script to crontab @reboot >> /etc/cron.d/discord-update
