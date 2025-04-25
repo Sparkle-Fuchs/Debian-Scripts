@@ -77,9 +77,9 @@ else
 	if [ $? -eq 0 ]; then
 		#firefox https://github.com/fastfetch-cli/fastfetch
 		wget -O /tmp/fastfetch.deb "https://github.com/fastfetch-cli/fastfetch/releases/download/2.41.0/fastfetch-linux-amd64.deb"
-		apt install /tmp/fastfetch.deb && rm -rf /tmp/fastfetch.deb
+		apt install /tmp/fastfetch.deb -y && rm -rf /tmp/fastfetch.deb
 	else
-		apt install fastfetch
+		apt install fastfetch -y
 	fi
 fi
 
