@@ -21,11 +21,11 @@ dpkg -s steam-launcher &> /dev/null
 if [ $? -eq 0 ]; then
 	echo -e "Steam is already installed."
 else
-	echo "The package steam is NOT installed! Wegt will be installed in 5 seconds! (Press Ctrl + C to cancel)"
+	echo "The package steam is NOT installed! Steam will be installed in 5 seconds! (Press Ctrl + C to cancel)"
 	sleep 5
 	mkdir /tmp/steam
 	wget -O /tmp/steam/steam_latest.deb "https://repo.steampowered.com/steam/archive/precise/steam_latest.deb"
-	apt install /tmp/steam/steam_latest.deb && rm -rf /tmp/steam/steam_latest.deb
+	apt install /tmp/steam/steam_latest.deb -y && rm -rf /tmp/steam/steam_latest.deb
 	echo "Steam is now installed!"
 fi
 
