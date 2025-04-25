@@ -29,7 +29,5 @@ echo https://addons.mozilla.org/en-US/firefox/addon/keepassxc-browser/
 echo https://addons.mozilla.org/de/firefox/addon/ublock-origin/
 #echo https://addons.mozilla.org/de/firefox/addon/languagetool/
 #echo https://addons.mozilla.org/de/firefox/addon/keepa/
-#echo https://addons.mozilla.org/de/firefox/addon/jdownloader/
-#echo https://addons.mozilla.org/de/firefox/addon/single-file/
 
 exit
