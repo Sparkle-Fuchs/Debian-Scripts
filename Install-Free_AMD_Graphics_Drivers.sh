@@ -17,9 +17,9 @@ if [ $? -eq 0 ]; then
 #	AMD Grafikkarte erkannt
 	apt purge '*nvidia*'
 	apt update
-	apt install firmware-amd-graphics libgl1-mesa-dri libglx-mesa0 mesa-vulkan-drivers xserver-xorg-video-all
+	apt install firmware-amd-graphics libgl1-mesa-dri libglx-mesa0 mesa-vulkan-drivers xserver-xorg-video-all -y
 	dpkg --add-architecture i386 && apt update
-	apt install libglx-mesa0:i386 mesa-vulkan-drivers:i386 libgl1-mesa-dri:i386
+	apt install libglx-mesa0:i386 mesa-vulkan-drivers:i386 libgl1-mesa-dri:i386 -y
 	apt install lm-sensors radeontop
  	sudo init 6
 fi
