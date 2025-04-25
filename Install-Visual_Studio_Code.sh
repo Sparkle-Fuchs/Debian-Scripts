@@ -34,7 +34,7 @@ echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft
 rm -f packages.microsoft.gpg
 
 apt update
-apt install code
+apt install code -y
 
 echo "Visual Studio Code is installed!"
 
