@@ -8,22 +8,28 @@ fi
 
 apt update
 
-apt install firefox-esr webhttrack lynx filezilla
-apt install vlc calibre calibre-bin obs-studio okteta
-apt install thunderbird thunderbird-l10n-de thunderbird-l10n-en-gb
+apt install firefox-esr
+apt install webhttrack ibhttrack2 webhttrack-common
+apt install lynx
+apt install filezilla filezilla-common libfilezilla-common -y
+apt install vlc -y
+#apt install calibre calibre-bin
+apt install obs-studio obs-plugins -y
+apt install okteta -y
+apt install thunderbird thunderbird-l10n-de thunderbird-l10n-en-gb -y
 
-apt install handbrake handbrake-cli
+apt install handbrake handbrake-cli -y
 apt install gimp gimp-help-en gimp-help-de
 
 #apt install pulseaudio
 
-apt install keepassxc
+apt install keepassxc fonts-font-awesome -y
 
-firefox https://addons.mozilla.org/en-US/firefox/addon/keepassxc-browser/
-firefox https://addons.mozilla.org/de/firefox/addon/ublock-origin/
-#firefox https://addons.mozilla.org/de/firefox/addon/languagetool/
-#firefox https://addons.mozilla.org/de/firefox/addon/keepa/
-#firefox https://addons.mozilla.org/de/firefox/addon/jdownloader/
-#firefox https://addons.mozilla.org/de/firefox/addon/single-file/
+echo https://addons.mozilla.org/en-US/firefox/addon/keepassxc-browser/
+echo https://addons.mozilla.org/de/firefox/addon/ublock-origin/
+#echo https://addons.mozilla.org/de/firefox/addon/languagetool/
+#echo https://addons.mozilla.org/de/firefox/addon/keepa/
+#echo https://addons.mozilla.org/de/firefox/addon/jdownloader/
+#echo https://addons.mozilla.org/de/firefox/addon/single-file/
 
 exit
