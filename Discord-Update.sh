@@ -48,7 +48,7 @@ fi
 
 # Remove this skript from your system >> remove /usr/sbin/discord-updater.sh
 if test $1 == "--remove"; then
-	echo "Discord-Updater was Removed from your system! Updates for Discord are no longer installed..."
+	echo "Discord-Updater was Removed from your system! No more updates for Discord will be installed..."
 	rm -rf /usr/sbin/discord-updater.sh
 	exit 42
 fi
