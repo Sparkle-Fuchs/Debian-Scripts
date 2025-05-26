@@ -20,7 +20,7 @@ Discord-Update-On-Reboot(){
 	echo "SHELL=/bin/sh" >> /etc/cron.d/discord-update
 	echo "PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin" >> /etc/cron.d/discord-update
 	echo "" >> /etc/cron.d/discord-update
-	echo "@reboot		root		sleep 300; /usr/sbin/discord-update.sh" >> /etc/cron.d/discord-update
+	echo "@reboot		root		sleep 10; /usr/sbin/discord-update.sh" >> /etc/cron.d/discord-update
 }
 
 
