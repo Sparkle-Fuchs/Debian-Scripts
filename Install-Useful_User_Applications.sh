@@ -9,7 +9,7 @@ fi
 apt update
 
 apt install firefox-esr
-apt install webhttrack ibhttrack2 webhttrack-common
+apt install webhttrack -y
 apt install lynx
 apt install filezilla filezilla-common libfilezilla-common -y
 apt install vlc -y
