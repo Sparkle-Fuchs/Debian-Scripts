@@ -89,7 +89,7 @@ if [ $? -eq 0 ]; then
 else
 	echo "The package lolcat is NOT installed! lolcat will be installed in 5 seconds! (Press Ctrl + C to cancel)"
 	sleep 5
-	apt install lolcat
+	apt install lolcat -y
 fi
 
 exit
