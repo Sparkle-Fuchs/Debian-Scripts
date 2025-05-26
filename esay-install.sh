@@ -1,4 +1,4 @@
-# Run example: " ./esay-install.sh --[username] --[enable|disable]
+# Run example: " ./esay-install.sh --[username]
 
 # Check for root privileges
 if [ "$EUID" -ne 0 ]; then
@@ -64,7 +64,7 @@ else
 
 	echo "install discord and discord-update-service..."
 	sleep 2
-	/var/tmp/easy-install/Debian-Scripts-main/Discord-Update.sh $2
+	/var/tmp/easy-install/Debian-Scripts-main/Discord-Update.sh --enable
 
 	echo "install Visual Studio Code..."
 	sleep 2
