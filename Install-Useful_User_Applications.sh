@@ -22,41 +22,38 @@ apt install handbrake handbrake-cli -y
 apt install gimp gimp-help-en gimp-help-de
 
 apt install easytag -y
-apt install apt install audacity -y
+apt install audacity -y
 #apt install pulseaudio
 
 apt install keepassxc fonts-font-awesome -y
-
-echo https://addons.mozilla.org/en-US/firefox/addon/keepassxc-browser/
-echo https://addons.mozilla.org/de/firefox/addon/ublock-origin/
-#echo https://addons.mozilla.org/de/firefox/addon/languagetool/
-#echo https://addons.mozilla.org/de/firefox/addon/keepa/
-
 
 # autoremove protection
 dpkg -s sddm &> /dev/null
 if [ $? -eq 0 ]; then
 	apt-mark manual sddm
-else
 fi
 
 dpkg -s sddm-theme-debian-breeze &> /dev/null
 if [ $? -eq 0 ]; then
 	apt-mark manual sddm-theme-debian-breeze
-else
 fi
 
 dpkg -s sddm-theme-breeze &> /dev/null
 if [ $? -eq 0 ]; then
 	apt-mark manual sddm-theme-breeze
-else
 fi
 
 dpkg -s kde-plasma-desktop &> /dev/null
 if [ $? -eq 0 ]; then
 	apt-mark manual kde-plasma-desktop
- 	apt install kcolorchooser kde-spectacle
-else
+ 	apt install kcolorchooser kde-spectacle -y
 fi
+
+echo
+echo https://addons.mozilla.org/en-US/firefox/addon/keepassxc-browser/
+echo https://addons.mozilla.org/de/firefox/addon/ublock-origin/
+echo https://addons.mozilla.org/de/firefox/addon/languagetool/
+echo https://addons.mozilla.org/de/firefox/addon/keepa/
+echo
 
 exit
