@@ -1,3 +1,5 @@
+# Run example: " ./esay-install.sh --[username] --[enable|disable]
+
 # Check for root privileges
 if [ "$EUID" -ne 0 ]; then
 	echo "Error: This script requires root privileges. Please run with sudo."
@@ -29,7 +31,7 @@ done
 
 echo "Customization for main user and installation of useful terminal tools."
 sleep 5
-./User_Setup_And_Command_Line.sh --sparkle
+./User_Setup_And_Command_Line.sh $1
 
 echo "adding 32 bit libraries..."
 sleep 5
@@ -57,7 +59,7 @@ slepp 5
 
 echo "install discord and discord-update-service..."
 slepp 5
-./Discord-Update.sh --enable
+./Discord-Update.sh $2
 
 echo "install Visual Studio Code..."
 slepp 5
