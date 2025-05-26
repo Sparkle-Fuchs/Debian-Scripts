@@ -37,15 +37,14 @@ if [ $? -ne 0 ]; then
 
 	echo "Customization for main user and installation of useful terminal tools."
 	sleep 2
-#	/var/tmp/easy-install/Debian-Scripts-main/User_Setup_And_Command_Line.sh $1
+	# /var/tmp/easy-install/Debian-Scripts-main/User_Setup_And_Command_Line.sh $1
 
 	echo "adding 32 bit libraries..."
 	sleep 2
-#	/var/tmp/easy-install/Debian-Scripts-main/Install-Free_AMD_Graphics_Drivers.sh
+	# /var/tmp/easy-install/Debian-Scripts-main/Install-Free_AMD_Graphics_Drivers.sh
 
 else
 	# second run
-
 	echo "install standard software..."
 	sleep 2
 	/var/tmp/easy-install/Debian-Scripts-main/Install-Useful_User_Applications.sh
