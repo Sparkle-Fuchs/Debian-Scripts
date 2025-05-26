@@ -30,6 +30,8 @@ else
 fi
 
 	apt update
+ 	apt upgrade
  	apt install libc6:amd64 libc6:i386 libegl1:amd64 libegl1:i386 libgbm1:amd64 libgbm1:i386 libgl1-mesa-dri:amd64 libgl1-mesa-dri:i386 libgl1:amd64 libgl1:i386 steam-libs-amd64:amd64 steam-libs-amd64
+  	apt-mark manual libdecor-0-0:i386 libdecor-0-plugin-1-cairo:i386 libsdl2-2.0-0:i386 libwayland-cursor0:i386 libwayland-egl1:i386 libxcursor1:i386 libxdamage1:i386 libxi6:i386 libxrandr2:i386 steam-libs:i386
 
 exit
