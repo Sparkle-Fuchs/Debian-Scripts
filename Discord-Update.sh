@@ -1,6 +1,7 @@
 #!/bin/bash
 
 Discord-Install-Routine(){
+	pkill -f discord
 	mkdir /tmp/discord
   	echo -e "Download latest version of Discord...   (Press Ctrl + C to cancel)"
 	wget -O /tmp/discord/discord-installer.deb "https://discord.com/api/download/stable?platform=linux&format=deb"
