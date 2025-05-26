@@ -21,6 +21,8 @@ apt install thunderbird thunderbird-l10n-de thunderbird-l10n-en-gb -y
 apt install handbrake handbrake-cli -y
 apt install gimp gimp-help-en gimp-help-de
 
+apt install easytag -y
+apt install apt install audacity -y
 #apt install pulseaudio
 
 apt install keepassxc fonts-font-awesome -y
