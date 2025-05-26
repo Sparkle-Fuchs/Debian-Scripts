@@ -52,4 +52,11 @@ if [ $? -eq 0 ]; then
 else
 fi
 
+dpkg -s kde-plasma-desktop &> /dev/null
+if [ $? -eq 0 ]; then
+	apt-mark manual kde-plasma-desktop
+ 	apt install kcolorchooser kde-spectacle
+else
+fi
+
 exit
