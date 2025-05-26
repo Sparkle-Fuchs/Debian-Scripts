@@ -14,6 +14,8 @@ Discord-Update-On-Reboot(){
 		cp ${BASH_SOURCE[0]} /usr/sbin/discord-update.sh
   	fi
 
+	cat /etc/cron.d/discord-update &> /dev/null
+	if [ $? -ne 0 ]; then
 	touch /etc/cron.d/discord-update
 	echo "# /etc/cron.d/discord-update: crontab entries for automatic discord updates" >> /etc/cron.d/discord-update
 	echo "" >> /etc/cron.d/discord-update
@@ -21,6 +23,7 @@ Discord-Update-On-Reboot(){
 	echo "PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin" >> /etc/cron.d/discord-update
 	echo "" >> /etc/cron.d/discord-update
 	echo "@reboot		root		sleep 10; /usr/sbin/discord-update.sh" >> /etc/cron.d/discord-update
+	fi
 }
 
 
