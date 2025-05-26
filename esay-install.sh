@@ -65,7 +65,7 @@ slepp 5
 
 echo "install unity..."
 slepp 5
-./Installl-Unity3D.sh
+./Install-Unity3D.sh
 
 rm -rf /var/tmp/easy-install
 
