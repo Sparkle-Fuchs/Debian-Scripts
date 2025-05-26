@@ -16,7 +16,7 @@ else
 	apt install wget
 fi
 
-# Is steam installed?
+# Is Unity installed?
 dpkg -s unityhub &> /dev/null
 if [ $? -eq 0 ]; then
 	echo -e "Unity is already installed."
